@@ -15,6 +15,8 @@ from django.template.loader import render_to_string
 from django.http import HttpResponseBadRequest
 
 
+
+
 # Create your views here.
 @login_required(login_url='SignIn')
 def CartPage(request):

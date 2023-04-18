@@ -5,7 +5,7 @@ from Home.blockgenerator import Block
 from datetime import datetime
 from Home.models import Block_2,Block_1,Block_3,Block_4
 from .models import Medicine
-
+from Cart.models import CheckoutItems
 
 
 def Medicine_Func(request):
@@ -80,4 +80,9 @@ def MedicineValidate(request,pk):
         return HttpResponse("Medicine is not valid")
         
         
-    
+def CustomerOrderes(request):
+    items = CheckoutItems.objects.all()
+    context = {
+        "items":items
+    }
+    return render(request,"manufacturer/orders.html",context)

@@ -16,3 +16,6 @@ class Medicine(models.Model):
     image = models.FileField(upload_to='medicine_image')
     timestamp = models.DateTimeField(auto_now_add=True)
     
+    def __str__(self):
+        return str(self.name + self.manufacturer)
+    
