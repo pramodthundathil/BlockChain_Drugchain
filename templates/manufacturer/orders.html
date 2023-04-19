@@ -37,7 +37,7 @@
                 <td>{{i.stock}}</td>
                 <td>{{i.price}}</td>
                 <td>{{i.user.first_name}}</td>
-                <td><a href="" class="btn btn-outline-danger">delete</a></td>
+                <td><a href="{%url 'deleteordermanu' i.id %}" class="btn btn-outline-danger">delete</a></td>
             </tr>
 
             {% endif %}

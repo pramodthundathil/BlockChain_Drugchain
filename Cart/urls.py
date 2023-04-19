@@ -10,6 +10,9 @@ urlpatterns = [
     path("ProceedCheckout",views.ProceedCheckout,name="ProceedCheckout"),
     path("paymenthandler/",views.paymenthandler,name="paymenthandler"),
     path("Success1",views.Success1,name="Success1"),
-    path("MyOrderes",views.MyOrderes,name="MyOrderes")
+    path("MyOrderes",views.MyOrderes,name="MyOrderes"),
+    path("deleteordermanu/<int:pk>",views.deleteordermanu,name="deleteordermanu"),
+    path("deleteordercus/<int:pk>",views.deleteordercus,name="deleteordercus"),
+    
     
 ]

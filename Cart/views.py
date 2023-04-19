@@ -190,6 +190,15 @@ def MyOrderes(request):
         "orderitems":orderitems
     }
     return render(request,'myorders.html',context)
+
+def deleteordermanu(request,pk):
+    orderitems = CheckoutItems.objects.filter(id=pk).delete()
+    return redirect("CustomerOrderes")
+    
+def deleteordercus(request,pk):
+    orderitems = CheckoutItems.objects.filter(id=pk).delete()
+    return redirect("CustomerOrderes")
+    
         
     
     
