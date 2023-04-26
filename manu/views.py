@@ -73,11 +73,16 @@ def MedicineValidate(request,pk):
     print(blockhashvalue)
     if BlockChanin2.hash == block3.Blockhash:
         if blockhashvalue.hash == block4.Blockhash:
-            return HttpResponse("Medicine is Valid")
+            messages.info(request,"Medicine is Valid")
+            return redirect("Medicine_Func")
         else:
-            return HttpResponse("Medicine is not valid")
+            messages.info(request,"Medicine is not valid")
+            return redirect("Medicine_Func")
+            
     else:
-        return HttpResponse("Medicine is not valid")
+        messages.info(request,"Medicine is not valid")
+        return redirect("Medicine_Func")
+        
         
         
 def CustomerOrderes(request):
@@ -86,3 +91,9 @@ def CustomerOrderes(request):
         "items":items
     }
     return render(request,"manufacturer/orders.html",context)
+
+def Deletemed(request,pk):
+    Medicine.objects.get(id = pk).delete()
+    messages.info(request,"Medicine deleted")
+    return redirect("Medicine_Func")
+    

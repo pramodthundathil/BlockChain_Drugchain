@@ -54,6 +54,7 @@
             <th>Price</th>
             <th>Dealer Price</th>
             <th>Action</th>
+            <th>Delete</th>
         </tr>
         {% for med in medi  %}
           
@@ -63,6 +64,8 @@
             <td>{{med.MRP}}</td>
             <td>{{med.distributer_price}}</td>
             <td><a href="{%url 'MedicineValidate' med.id %}" class="btn btn-outline-light btn-sm" >Validate</a></td>
+            <td><a href="{%url 'Deletemed' med.id %}" class="btn btn-outline-danger btn-sm" >delete</a></td>
+
         </tr>
         {% endfor %}
 
