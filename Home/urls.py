@@ -10,6 +10,16 @@ urlpatterns = [
     path("MakerIndex",views.MakerIndex,name="MakerIndex"),
     path("ViewMed/<int:pk>",views.ViewMed,name="ViewMed"),
     path("ValidateMedicine/<int:pk>",views.ValidateMedicine,name="ValidateMedicine"),
+    path("Userprofile",views.Userprofile,name="Userprofile"),
+    path("AllMedicines",views.AllMedicines,name="AllMedicines"),
+    path("Search",views.Search,name="Search"),
+    path("UploadPrescription",views.UploadPrescription,name="UploadPrescription"),
+    path("DoctorIndex",views.DoctorIndex,name="DoctorIndex"),
+    path("PatientReq",views.PatientReq,name="PatientReq"),
+    path("ProfileDoctor",views.ProfileDoctor,name="ProfileDoctor"),
+    path("PrescriptionReq",views.PrescriptionReq,name="PrescriptionReq"),
+    path("UpadtePrescription/<int:pk>",views.UpadtePrescription,name="UpadtePrescription"),
+
     
 ]
 

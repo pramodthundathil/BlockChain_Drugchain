@@ -41,5 +41,11 @@ def admin_only(view_func):
         
         if group == 'manufacturer':
             return redirect('MakerIndex')
+
+        if group == "distributor":
+            return redirect("DeliveryIndex")
+
+        if group == "doctor":
+            return redirect("DoctorIndex")
               
     return wrapper_function

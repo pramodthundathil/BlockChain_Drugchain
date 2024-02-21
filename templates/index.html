@@ -78,24 +78,28 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="{%url 'Index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link" href=""> About </a>
+                </li> -->
+                <li class="nav-item">
+                  <a class="nav-link" href="{%url 'AllMedicines' %}"> Medicine </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href=""> Medicine </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href=""> Online Buy </a>
+                  <a class="nav-link" href="{%url 'Userprofile' %}"> UserProfile </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{%url 'CartPage' %}"> Cart </a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="{%url 'PrescriptionReq' %}"> Prescription Request </a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="{%url 'MyOrderes' %}">My Orders</a>
                 </li>
               </ul>
-              <form class="form-inline ">
-                <input type="search" placeholder="Search">
+              <form class="form-inline " action="{%url 'Search' %}" method="post">
+                {% csrf_token %}
+                <input type="search" name="search" required placeholder="Search">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
               </form>
               {% if request.user.is_authenticated %}
@@ -162,8 +166,8 @@
                       believable.
                     </p>
                     <div>
-                      <a href="#">
-                        Buy Now
+                      <a href="{%url 'UploadPrescription' %}">
+                        Upload Prescription
                       </a>
                     </div>
                   </div>
@@ -195,7 +199,8 @@
                     </p>
                     <div>
                       <a href="">
-                        Buy Now
+                        Upload Prescription
+
                       </a>
                     </div>
                   </div>
@@ -227,7 +232,8 @@
                     </p>
                     <div>
                       <a href="">
-                        Buy Now
+                        Upload Prescription
+
                       </a>
                     </div>
                   </div>
@@ -877,6 +883,18 @@
       </div>
     </div>
   </section>
+
+  <script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings = 
+            {"appId":"30e120eb5adc3637b343a32b2e934294f","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script>
 
   <!-- end contact section -->
   {% endblock %}

@@ -47,6 +47,26 @@ class UserProfile(models.Model):
     district = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
     phone = models.CharField(max_length=20)
+
+class Prescription(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    pres = models.FileField(upload_to="prescription")
+
+class DoctorProfile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    Specilisation = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name + " " + self.Specilisation
+
+
+class DoctorPrescription(models.Model):
+    doctor = models.ForeignKey(DoctorProfile, on_delete = models.SET_NULL,null=True,blank=True)
+    patient = models.ForeignKey(User, on_delete = models.CASCADE,null=True, blank=True)
+    Disease = models.CharField(max_length=255)
+    Prescription = models.CharField(max_length=1000,null= True, blank=True)
+    date = models.DateField(auto_now_add=True)
     
 
 

@@ -52,7 +52,7 @@
             <div class="col-md-4">
                 <img src="{{medi.image.url}}" style="width:80%;height:auto" alt="">
                 <br><br><br>
-                <a href="" class="btn btn-dark">Buy Now</a>
+                <a href="{%url 'EmergencyBuy' medi.id %}" class="btn btn-danger">Emergency Buy</a>
                 <a href="{%url 'AddToCart' medi.id %}" class="btn btn-warning">Add To Cart</a>
             </div>
         </div>

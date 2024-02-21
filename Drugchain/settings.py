@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Home.apps.HomeConfig',
     'manu',
     'Cart',
+    "DeliveryBoy"
 ]
 
 MIDDLEWARE = [

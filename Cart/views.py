@@ -6,7 +6,7 @@ from Home.models import Block_2,Block_1,Block_3,Block_4
 from Home.models import Block_1
 from manu.models import Medicine
 from django.contrib.auth.decorators import login_required
-from .models import CartItems, CheckoutItems
+from .models import CartItems, CheckoutItems, EmergencyCheckout
 
 import razorpay
 from django.conf import settings
@@ -186,19 +186,33 @@ def Success1(request):
 @login_required(login_url='SignIn')
 def MyOrderes(request):
     orderitems = CheckoutItems.objects.filter(user=request.user)
+    Eitems = EmergencyCheckout.objects.filter(user = request.user)
     context = {
-        "orderitems":orderitems
+        "orderitems":orderitems,
+        "Eitems":Eitems
     }
     return render(request,'myorders.html',context)
+
+
 
 def deleteordermanu(request,pk):
     orderitems = CheckoutItems.objects.filter(id=pk).delete()
     return redirect("CustomerOrderes")
     
 def deleteordercus(request,pk):
-    orderitems = CheckoutItems.objects.filter(id=pk).delete()
-    return redirect("CustomerOrderes")
+    orderitems = CheckoutItems.objects.get(id=pk).delete()
+    return redirect("MyOrderes")
+
+def deleteordercusEmry(request,pk):
+    orderitems =  EmergencyCheckout.objects.get(id=pk).delete()
+    return redirect("MyOrderes")
+
+
     
         
-    
+def EmergencyBuy(request,pk):
+    medicine = Medicine.objects.get(id = pk)
+    order = EmergencyCheckout.objects.create(medicine = medicine,user = request.user,stock = 1,price = medicine.MRP, status = "item Ordered" )
+    order.save()
+    return render(request,"confirmation.html")
     
