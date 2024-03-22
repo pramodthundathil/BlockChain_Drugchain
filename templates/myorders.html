@@ -10,6 +10,7 @@
             <th>Rate</th>
             <th>Quantity</th>
             <th>Date</th>
+            <th>Status</th>
             <th>Delete</th>
         </tr>
         {% for i in Eitems %}
@@ -19,6 +20,7 @@
             <td>{{i.price}}</td>
             <td>{{i.stock}}</td>
             <td>{{i.date}}</td>
+            <td>{{i.status}}</td>
             <td><a href="{%url 'deleteordercusEmry' i.id %}" class="btn btn-outline-danger">delete</a></td>
         </tr>
         {% endfor %}
@@ -33,6 +35,7 @@
                 <th>Rate</th>
                 <th>Quantity</th>
                 <th>Date</th>
+                <th>Status</th>
                 <th>Delete</th>
             </tr>
             {% for i in orderitems %}
@@ -42,6 +45,7 @@
                 <td>{{i.price}}</td>
                 <td>{{i.stock}}</td>
                 <td>{{i.date}}</td>
+                <td>{{i.status}}</td>
                 <td><a href="{%url 'deleteordercus' i.id %}" class="btn btn-outline-danger">delete</a></td>
             </tr>
             {% endfor %}
